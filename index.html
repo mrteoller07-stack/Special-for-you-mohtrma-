@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Special Question for You ❤️</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+      overflow: hidden;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px 30px;
+      border-radius: 24px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      max-width: 420px;
+      width: 100%;
+      position: relative;
+    }
+
+    .heart-icon {
+      font-size: 60px;
+      animation: pulse 1.2s infinite;
+      margin-bottom: 15px;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    h1 {
+      color: #d63384;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      font-size: 16px;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
+      min-height: 60px;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 18px;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    #yesBtn {
+      background-color: #ff4d6d;
+      color: white;
+      box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+    }
+
+    #yesBtn:hover {
+      transform: scale(1.08);
+      background-color: #e63956;
+    }
+
+    #noBtn {
+      background-color: #adb5bd;
+      color: white;
+      position: absolute;
+      right: 40px;
+    }
+
+    .celebration {
+      display: none;
+    }
+
+    .celebration h2 {
+      color: #ff4d6d;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="mainCard">
+    <div id="questionState">
+      <div class="heart-icon">💖</div>
+      <!-- Girlfriend ka naam yahan change karein -->
+      <h1>Hey [Her Name]!</h1>
+      <p>You make every single day brighter, happier, and full of love. Will you be mine forever?</p>
+      
+      <div class="btn-container">
+        <button id="yesBtn" onclick="handleYes()">Yes! ❤️</button>
+        <button id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">No</button>
+      </div>
+    </div>
+
+    <div id="celebrationState" class="celebration">
+      <div class="heart-icon">🎉💍</div>
+      <h2>She Said YES! ❤️</h2>
+      <p>I promise to make you the happiest person always. Can't wait for our forever!</p>
+    </div>
+  </div>
+
+  <!-- Confetti script celebration ke liye -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const noBtn = document.getElementById('noBtn');
+
+    function moveNoButton() {
+      // Button randomly screen ke andar bhagega
+      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+
+      noBtn.style.position = 'fixed';
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    }
+
+    function handleYes() {
+      document.getElementById('questionState').style.display = 'none';
+      document.getElementById('celebrationState').style.display = 'block';
+
+      // Full screen confetti burst
+      confetti({
+        particleCount: 150,
+        spread: 80,
+        origin: { y: 0.6 }
+      });
+
+      // Continuous heart confetti for 3 seconds
+      const end = Date.now() + 3000;
+      const interval = setInterval(function() {
+        if (Date.now() > end) {
+          return clearInterval(interval);
+        }
+        confetti({
+          startVelocity: 30,
+          spread: 360,
+          ticks: 60,
+          origin: {
+            x: Math.random(),
+            y: Math.random() - 0.2
+          }
+        });
+      }, 250);
+    }
+  </script>
+</body>
+  </html>
+                                                                                                  
