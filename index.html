@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Show ❤️</title>
+<title>Happy Birthday Vanshu ❤️</title>
 
 <style>
 * {
@@ -27,7 +27,7 @@ body {
 }
 
 h1 {
-  font-size: 38px;
+  font-size: 35px;
   margin: 25px 0;
   text-shadow: 0 3px 15px #a0006d;
 }
@@ -70,10 +70,6 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  transform: scale(1.05);
-}
-
 #surprise {
   display: none;
   margin-top: 25px;
@@ -88,7 +84,7 @@ button:hover {
 .heart {
   position: fixed;
   bottom: -30px;
-  animation: float 5s linear infinite;
+  animation: float 5s linear forwards;
   pointer-events: none;
 }
 
@@ -105,13 +101,13 @@ button:hover {
 
 <div class="container">
 
-<h1>🎀 Something Special For You 🎀</h1>
+<h1>🎀 A Special Surprise 🎀</h1>
 
 <div class="card">
 
 <div class="cake">🎂</div>
 
-<h2>Hey SHOW! ❤️</h2>
+<h2>Hey VANSHU! ❤️</h2>
 
 <p>
 Someone special has a special day coming soon!
@@ -119,37 +115,42 @@ And this little website is just for YOU.
 </p>
 
 <h2>🎉 Birthday Countdown 🎉</h2>
-<h1 id="countdown">6 Days Left!</h1>
+<h1 id="countdown">Loading...</h1>
 
 <button onclick="openGift()">
 🎁 Open Your Surprise
 </button>
 
 <div id="surprise">
-<h2>💖 Happy Birthday SHOW! 💖</h2>
+
+<h2>💖 Happy Birthday VANSHU! 💖</h2>
 
 <p>
+Dear Vanshu,
+
 You are an amazing friend.
 May your life always be full of happiness,
 smiles, love and beautiful memories.
 
-Stay happy, keep smiling
-and never stop shining! ✨
+Keep smiling, keep shining
+and always stay the wonderful person you are!
 
-This little gift is just for you. ❤️
+This little gift is made especially for you. ❤️
 </p>
 
 <div style="font-size:55px">🌹💝🧸</div>
+
 <h3>From Your Special Friend ❤️</h3>
-</div>
 
 </div>
+</div>
 
-<p>Made with ❤️ Just For SHOW</p>
+<p>Made with ❤️ Just For VANSHU</p>
 
 </div>
 
 <script>
+
 function openGift() {
   document.getElementById("surprise").style.display = "block";
 }
@@ -176,17 +177,22 @@ function updateCountdown() {
 
   if (diff <= 0) {
     document.getElementById("countdown").innerHTML =
-      "🎉 IT'S YOUR BIRTHDAY! 🎉";
+      "🎉 HAPPY BIRTHDAY! 🎉";
     return;
   }
 
-  const days = Math.ceil(diff / (1000*60*60*24));
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const minutes = Math.floor((diff % 3600000) / 60000);
+  const seconds = Math.floor((diff % 60000) / 1000);
+
   document.getElementById("countdown").innerHTML =
-    days + " Days Left! ❤️";
+    days + "d " + hours + "h " + minutes + "m " + seconds + "s ❤️";
 }
 
 updateCountdown();
-setInterval(updateCountdown, 60000);
+setInterval(updateCountdown, 1000);
+
 </script>
 
 </body>
