@@ -4,105 +4,190 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Sara Ji ❤️</title>
+<title>Happy Birthday Show ❤️</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-font-family:Georgia,serif;
-background:linear-gradient(135deg,#25002f,#85004f,#ff8ebc);
-color:white;text-align:center;min-height:100vh;
-overflow-x:hidden;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.container{padding:35px 18px;max-width:500px;margin:auto}
-h1{font-size:35px;color:#ffd9ed;margin:15px}
-.name{font-size:43px;color:#fff;font-weight:bold}
-.photo{
-width:220px;height:220px;border-radius:50%;
-object-fit:cover;border:5px solid white;
-box-shadow:0 0 30px pink;margin:25px auto;
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg,#ff758c,#ff7eb3,#a18cd1);
+  color: white;
+  text-align: center;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
-.cake{font-size:90px;margin:20px;animation:bounce 2s infinite}
-p{font-size:18px;line-height:1.7;margin:20px 0}
-button{
-background:#ff4d9d;color:white;border:0;
-padding:15px 25px;border-radius:30px;
-font-size:17px;margin:12px;cursor:pointer;
-box-shadow:0 5px 20px #ff7bb7;
+
+.container {
+  padding: 35px 18px;
 }
-#secret{display:none;background:#fff1f8;color:#9d155c;
-padding:22px;border-radius:20px;margin-top:20px;
-line-height:1.8;font-size:19px}
-.heart{position:fixed;bottom:-30px;animation:float 6s linear infinite}
-@keyframes float{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
-@keyframes bounce{50%{transform:translateY(-12px)}}
+
+h1 {
+  font-size: 38px;
+  margin: 25px 0;
+  text-shadow: 0 3px 15px #a0006d;
+}
+
+.card {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 25px;
+  padding: 30px 20px;
+  max-width: 430px;
+  margin: 25px auto;
+  box-shadow: 0 10px 35px #70205c55;
+}
+
+.cake {
+  font-size: 85px;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  50% { transform: translateY(-12px); }
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 15px 0;
+}
+
+button {
+  background: white;
+  color: #ec4899;
+  border: none;
+  padding: 14px 25px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 15px 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+#surprise {
+  display: none;
+  margin-top: 25px;
+  animation: fade 1s;
+}
+
+@keyframes fade {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  animation: float 5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
-<h1>🎉 Happy Birthday 🎉</h1>
-<div class="name">Sara Ji ❤️</div>
+<h1>🎀 Something Special For You 🎀</h1>
 
-<!-- Apni photo ka naam sara.jpg rakho -->
-<img src="sara.jpg" class="photo" alt="Sara Ji"
-onerror="this.style.display='none'">
+<div class="card">
 
 <div class="cake">🎂</div>
 
-<h2>✨ A Special Day For You ✨</h2>
+<h2>Hey SHOW! ❤️</h2>
 
 <p>
-Aaj ka din bahut special hai,
-kyunki aaj ek special insaan ka birthday hai. 💗
+Someone special has a special day coming soon!
+And this little website is just for YOU.
 </p>
+
+<h2>🎉 Birthday Countdown 🎉</h2>
+<h1 id="countdown">6 Days Left!</h1>
+
+<button onclick="openGift()">
+🎁 Open Your Surprise
+</button>
+
+<div id="surprise">
+<h2>💖 Happy Birthday SHOW! 💖</h2>
 
 <p>
-Dua hai aapki zindagi khushiyon se bhari rahe,
-har sapna poora ho aur chehre par
-hamesha muskurahat rahe. 🌸
+You are an amazing friend.
+May your life always be full of happiness,
+smiles, love and beautiful memories.
+
+Stay happy, keep smiling
+and never stop shining! ✨
+
+This little gift is just for you. ❤️
 </p>
 
-<button onclick="surprise()">🎁 Open Your Surprise</button>
-
-<div id="secret">
-<h2>❤️ A Little Secret ❤️</h2>
-Aapki smile hamesha aise hi bani rahe.
-Aapki khushi mere liye bahut special hai.
-<br><br>
-Once Again...
-<strong>Happy Birthday Sara Ji! 🥹💗</strong>
+<div style="font-size:55px">🌹💝🧸</div>
+<h3>From Your Special Friend ❤️</h3>
 </div>
 
-<!-- Music file ka naam birthday.mp3 rakho -->
-<audio id="music" loop>
-<source src="birthday.mp3" type="audio/mpeg">
-</audio>
+</div>
 
-<button onclick="playMusic()">🎵 Play Music</button>
-
-<p style="font-size:14px">Made with ❤️ Just for Sara Ji</p>
+<p>Made with ❤️ Just For SHOW</p>
 
 </div>
 
 <script>
-function surprise(){
-document.getElementById("secret").style.display="block";
-for(let i=0;i<60;i++){
-let h=document.createElement("div");
-h.className="heart";
-h.innerHTML=["❤️","💕","✨","🌸","💗"][Math.floor(Math.random()*5)];
-h.style.left=Math.random()*100+"vw";
-h.style.animationDuration=(3+Math.random()*4)+"s";
-h.style.fontSize=(20+Math.random()*20)+"px";
-document.body.appendChild(h);
-setTimeout(()=>h.remove(),7000);
+function openGift() {
+  document.getElementById("surprise").style.display = "block";
 }
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (15 + Math.random()*25) + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 5000);
 }
-function playMusic(){
-document.getElementById("music").play();
+
+setInterval(createHeart, 400);
+
+// Birthday: 2 December 2026
+const birthday = new Date("2026-12-02T00:00:00");
+
+function updateCountdown() {
+  const now = new Date();
+  const diff = birthday - now;
+
+  if (diff <= 0) {
+    document.getElementById("countdown").innerHTML =
+      "🎉 IT'S YOUR BIRTHDAY! 🎉";
+    return;
+  }
+
+  const days = Math.ceil(diff / (1000*60*60*24));
+  document.getElementById("countdown").innerHTML =
+    days + " Days Left! ❤️";
 }
+
+updateCountdown();
+setInterval(updateCountdown, 60000);
 </script>
+
 </body>
 </html>
